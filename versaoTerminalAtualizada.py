@@ -50,8 +50,80 @@ def filtrar_estado(nova_lista, estado):
     for produto in produtos:
         if produto["estado"] == estado:
             nova_lista.append(produto)
-    
-    
+
+
+'''
+Função editar_produto não recebe parâmetros porque trabalha direto na lista global produtos.
+
+Fluxo:
+1 - Verifica se existe produto cadastrado (lista vazia trava a edição)
+2 - Exibe a lista numerada usando enumerate, que entrega (índice, item) a cada volta
+3 - Usuário escolhe o número correspondente ao produto
+4 - Validamos se o número escolhido é válido (existe na lista)
+5 - Perguntamos se quer trocar o estado; dependendo da resposta, pedimos os campos certos
+'''
+def editar_produto():
+    if not produtos:
+        print("Não há produtos cadastrados para editar.")
+        return
+
+    print("\n========================================================")
+    print("Escolha o produto que deseja editar:")
+    # enumerate(produtos, start=1) numera a partir de 1 em vez de 0, mais amigável pro usuário
+    for indice, produto in enumerate(produtos, start=1):
+        print(f"{indice} - {produto['nome_produto']} | estado: {produto['estado']} | qnt: {produto['qnt']}")
+
+    while True:
+        escolha = validar_prenchimento("Digite o número do produto: ")
+        # isdigit() confirma que o texto digitado é só números, evitando erro ao converter com int()
+        if escolha.isdigit() and 1 <= int(escolha) <= len(produtos):
+            indice_escolhido = int(escolha) - 1  # -1 porque a lista começa em 0, mas mostramos a partir de 1
+            break
+        print("Número inválido. Escolha um número da lista acima.")
+
+    produto = produtos[indice_escolhido]  # "produto" aqui é uma referência ao dicionário real dentro da lista
+    print(f"\nEditando: {produto['nome_produto']}")
+
+    # Pergunta se quer trocar o estado, reaproveitando a mesma lógica de validação do cadastro
+    while True:
+        novo_estado = validar_prenchimento("Deseja alterar o estado? (S - disponível | N - em uso | M - manter o atual) ")
+
+        if novo_estado.lower() == "m":
+            # Mantém o estado, só atualiza a quantidade
+            nova_qnt = int(validar_prenchimento("Nova quantidade: "))
+            produto["qnt"] = nova_qnt
+            break
+
+        elif novo_estado.lower() == "s":
+            nova_qnt = int(validar_prenchimento("Nova quantidade: "))
+            produto["estado"] = "disponível"
+            produto["qnt"] = nova_qnt
+            # Remove campos que só fazem sentido para "em uso", caso o produto estivesse emprestado antes
+            produto.pop("cliente", None)
+            produto.pop("funcionário", None)
+            produto.pop("data_hora", None)
+            break
+
+        elif novo_estado.lower() == "n":
+            qnt_atual = int(validar_prenchimento("Quantidade atual: "))
+            funcionario = validar_prenchimento("Qual o seu nome? ")
+            cliente = validar_prenchimento("Nome do cliente: ")
+            data_hora = datetime.now().strftime("DATA: %d/%m/%Y HORA: %H:%M")
+            produto.update({
+                "estado": "em uso",
+                "qnt": qnt_atual,
+                "cliente": cliente,
+                "funcionário": funcionario,
+                "data_hora": data_hora
+            })
+            break
+
+        else:
+            print("Por favor, preencha corretamente.")
+            continue
+
+    print(f"\nProduto atualizado: {produto}")
+
 
 produtos = []
 booleano = True
@@ -63,6 +135,7 @@ Qual ação você deseja executar?
 1 - Cadastro de novo produto
 2 - Visualização de produtos emprestados ("em uso")
 3 - Visualização de produtos disponíveis ("disponível")
+4 - Editar produto existente
                                      
 Digite o número da ação desejada:''')
     
@@ -150,4 +223,7 @@ Digite o número da ação desejada:''')
               produtos_disponiveis = []
               filtrar_estado(produtos_disponiveis, "disponível")
               
-              print(f"Essa é a lista de produtos disponíveis:\n{produtos_disponiveis}")  
+              print(f"Essa é a lista de produtos disponíveis:\n{produtos_disponiveis}")
+
+        case "4":
+              editar_produto()
