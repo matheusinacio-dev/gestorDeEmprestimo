@@ -18,6 +18,11 @@ Depois formatamos os dados capturados usando o método com a seguinte ordem:
 '''
 
 from datetime import datetime
+
+
+'''
+Explicação do uso do json e os arquivos para persistência de dados:
+'''
 import json
 import os
 
@@ -105,16 +110,23 @@ Função cadastro de novo produto - única entrada para produtos novos
     - sim - rodar mais uma vez o cadastro
     - não - voltar para o menu principal
 '''
-proximo_id = 0
-produtos = carregar_produtos()  # CORREÇÃO BUG 1: antes era produtos = [], então o programa nunca recuperava o que já tinha sido salvo no arquivo. Agora carrega o conteúdo de produtos.json (ou [] se o arquivo ainda não existir).
 
+
+ # CORREÇÃO BUG 1: antes era produtos = [], então o programa nunca recuperava o que já tinha sido salvo no arquivo. 
+ # Agora carrega o conteúdo de produtos.json (ou [] se o arquivo ainda não existir).
+produtos = carregar_produtos() 
+
+proximo_id = 0
 
 def cadastro_produto():
      
      while True:
           produto = {}
           global proximo_id
-          proximo_id += 1
+          # A lista de produtos é mantida em json. 
+          # Para a contagem de id dos produtos não reiniciar a cada sessão de cadastro, o id implementado sempre será o "tamanho da lista atual", que é mantido pela função carregar_produtos, + 1. 
+          # Assim, quando a lista estiver vazia, o primeiro item recebe 0 + 1. Quando tiver 1 item, o segundo item recebe 1 + 1, e assim por diante.
+          proximo_id = len(produtos) + 1
           nome_produto = validar_prenchimento("Nome do Produto com detalhes: ")
           descricao_produto = validar_prenchimento("Descrição do Produto (ex.: local de uso,...): ")
           estado = "disponível"
