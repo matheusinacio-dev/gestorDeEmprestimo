@@ -313,6 +313,12 @@ Digite o número da ação desejada:''')
               
               print(f"Essa é a lista de produtos disponíveis:\n{produtos_disponiveis}")
 
+         case "0":
+              # Salva mais uma vez por segurança (caso algo tenha ficado pendente) e encerra o loop infinito
+              salvar_produtos()
+              print("Dados salvos. Encerrando o programa...")
+              break
+
 
 
 
