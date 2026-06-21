@@ -265,7 +265,7 @@ while True:
 Qual ação você deseja executar?
 1 - Cadastro de novo produto
 2 - Emprestar produto já cadastrado
-3 - Devolver produto emprestado que espira hoje
+3 - Devolver produto emprestado que expira hoje
 4 - Checar vencimentos mensais
 5 - Visualização de produtos emprestados ("em uso")
 6 - Visualização de produtos disponíveis ("disponível")
