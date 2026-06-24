@@ -1,54 +1,54 @@
 [
   {
     "id": 1,
-    "nome_produto": "Faca",
-    "descricao_produto": "Branca",
+    "nome_produto": "Notebook Dell Latitude 5420",
+    "descricao_produto": "Intel Core i5, 16GB RAM, SSD 512GB",
     "estado": "disponível"
   },
   {
     "id": 2,
-    "nome_produto": "Garfo",
-    "descricao_produto": "Preto",
+    "nome_produto": "Projetor Epson PowerLite",
+    "descricao_produto": "Projetor Full HD para apresentações corporativas",
     "estado": "em uso",
-    "funcionario": "Matheus F",
-    "cliente": "Sérgio",
+    "funcionario": "Matheus Fernandes",
+    "cliente": "Sérgio Transportes",
     "data_emprestimo": "21/06/2026",
-    "data_devolucao": "30/08/2026"
+    "data_devolucao": "25/06/2026"
   },
   {
     "id": 3,
-    "nome_produto": "Secadora Industrial",
-    "descricao_produto": "Muito quente",
+    "nome_produto": "Impressora 3D Creality Ender 3",
+    "descricao_produto": "Impressora 3D para prototipagem rápida",
     "estado": "disponível"
   },
   {
     "id": 4,
-    "nome_produto": "Impressora 3D",
-    "descricao_produto": "Usada pelo time de CS",
+    "nome_produto": "Scanner Portátil Epson DS-360W",
+    "descricao_produto": "Scanner sem fio para digitalização de documentos",
     "estado": "disponível"
   },
   {
     "id": 5,
-    "nome_produto": "Louça de Porcelana",
-    "descricao_produto": "Japonesa",
+    "nome_produto": "Câmera DSLR Canon EOS Rebel T7",
+    "descricao_produto": "Câmera para registros fotográficos e eventos",
     "estado": "disponível"
   },
   {
     "id": 6,
-    "nome_produto": "Laptop Dell XPS 2016",
-    "descricao_produto": "512GB 16RAM",
+    "nome_produto": "Notebook Lenovo ThinkPad E14",
+    "descricao_produto": "AMD Ryzen 5, 16GB RAM, SSD 256GB",
     "estado": "disponível"
   },
   {
     "id": 7,
-    "nome_produto": "Secadora Industrial",
-    "descricao_produto": "200°F",
+    "nome_produto": "Multímetro Digital Fluke 117",
+    "descricao_produto": "Equipamento para medições elétricas profissionais",
     "estado": "disponível"
   },
   {
     "id": 8,
-    "nome_produto": "PAPAEL A5",
-    "descricao_produto": "DE PAPEL",
+    "nome_produto": "Furadeira de Impacto Bosch GSB 13 RE",
+    "descricao_produto": "Ferramenta elétrica para manutenção e instalação",
     "estado": "disponível"
   }
 ]
