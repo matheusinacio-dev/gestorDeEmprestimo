@@ -25,7 +25,11 @@
     "id": 4,
     "nome_produto": "Scanner Portátil Epson DS-360W",
     "descricao_produto": "Scanner sem fio para digitalização de documentos",
-    "estado": "disponível"
+    "estado": "em uso",
+    "funcionario": "Sergio Pereira",
+    "cliente": "Escritório de Advocacia Jr&Lucas",
+    "data_emprestimo": "25/06/2026",
+    "data_devolucao": "28/06/2026"
   },
   {
     "id": 5,
@@ -49,6 +53,10 @@
     "id": 8,
     "nome_produto": "Furadeira de Impacto Bosch GSB 13 RE",
     "descricao_produto": "Ferramenta elétrica para manutenção e instalação",
-    "estado": "disponível"
+    "estado": "em uso",
+    "funcionario": "Sávio Jr.",
+    "cliente": "João Móveis",
+    "data_emprestimo": "25/06/2026",
+    "data_devolucao": "25/06/2026"
   }
 ]
